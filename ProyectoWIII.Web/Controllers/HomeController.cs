@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProyectoWIII.Web.Models;
+using Rompecabezas.Web.Models;
 using System.Diagnostics;
 
 namespace Rompecabezas.Web.Controllers
