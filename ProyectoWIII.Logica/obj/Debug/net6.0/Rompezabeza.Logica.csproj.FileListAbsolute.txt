@@ -1,0 +1,12 @@
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\3_Primer Cuatrimestre\ToniettiLucia-44163427-ParcialPractica\ProyectoWebIII\ProyectoWIII.Logica\bin\Debug\net6.0\Rompezabeza.Logica.deps.json
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\3_Primer Cuatrimestre\ToniettiLucia-44163427-ParcialPractica\ProyectoWebIII\ProyectoWIII.Logica\bin\Debug\net6.0\Rompezabeza.Logica.dll
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\3_Primer Cuatrimestre\ToniettiLucia-44163427-ParcialPractica\ProyectoWebIII\ProyectoWIII.Logica\bin\Debug\net6.0\Rompezabeza.Logica.pdb
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\3_Primer Cuatrimestre\ToniettiLucia-44163427-ParcialPractica\ProyectoWebIII\ProyectoWIII.Logica\obj\Debug\net6.0\Rompezabeza.Logica.csproj.AssemblyReference.cache
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\3_Primer Cuatrimestre\ToniettiLucia-44163427-ParcialPractica\ProyectoWebIII\ProyectoWIII.Logica\obj\Debug\net6.0\Rompezabeza.Logica.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\3_Primer Cuatrimestre\ToniettiLucia-44163427-ParcialPractica\ProyectoWebIII\ProyectoWIII.Logica\obj\Debug\net6.0\Rompezabeza.Logica.AssemblyInfoInputs.cache
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\3_Primer Cuatrimestre\ToniettiLucia-44163427-ParcialPractica\ProyectoWebIII\ProyectoWIII.Logica\obj\Debug\net6.0\Rompezabeza.Logica.AssemblyInfo.cs
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\3_Primer Cuatrimestre\ToniettiLucia-44163427-ParcialPractica\ProyectoWebIII\ProyectoWIII.Logica\obj\Debug\net6.0\Rompezabeza.Logica.csproj.CoreCompileInputs.cache
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\3_Primer Cuatrimestre\ToniettiLucia-44163427-ParcialPractica\ProyectoWebIII\ProyectoWIII.Logica\obj\Debug\net6.0\Rompezabeza.Logica.dll
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\3_Primer Cuatrimestre\ToniettiLucia-44163427-ParcialPractica\ProyectoWebIII\ProyectoWIII.Logica\obj\Debug\net6.0\refint\Rompezabeza.Logica.dll
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\3_Primer Cuatrimestre\ToniettiLucia-44163427-ParcialPractica\ProyectoWebIII\ProyectoWIII.Logica\obj\Debug\net6.0\Rompezabeza.Logica.pdb
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\3_Primer Cuatrimestre\ToniettiLucia-44163427-ParcialPractica\ProyectoWebIII\ProyectoWIII.Logica\obj\Debug\net6.0\ref\Rompezabeza.Logica.dll

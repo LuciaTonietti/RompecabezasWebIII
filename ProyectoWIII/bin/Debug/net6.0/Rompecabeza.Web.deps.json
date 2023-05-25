@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Rompecabeza.Web/1.0.0": {
+        "dependencies": {
+          "Rompecabeza.Logica": "1.0.0"
+        },
+        "runtime": {
+          "Rompecabeza.Web.dll": {}
+        }
+      },
+      "Rompecabeza.Logica/1.0.0": {
+        "runtime": {
+          "Rompecabeza.Logica.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Rompecabeza.Web/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Rompecabeza.Logica/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

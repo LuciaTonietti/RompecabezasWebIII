@@ -1,0 +1,12 @@
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\ProyectoWebIIIRepo\ProyectoWIII.Logica\bin\Debug\net6.0\Rompecabezas.Logica.deps.json
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\ProyectoWebIIIRepo\ProyectoWIII.Logica\bin\Debug\net6.0\Rompecabezas.Logica.dll
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\ProyectoWebIIIRepo\ProyectoWIII.Logica\bin\Debug\net6.0\Rompecabezas.Logica.pdb
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\ProyectoWebIIIRepo\ProyectoWIII.Logica\obj\Debug\net6.0\Rompecabezas.Logica.csproj.AssemblyReference.cache
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\ProyectoWebIIIRepo\ProyectoWIII.Logica\obj\Debug\net6.0\Rompecabezas.Logica.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\ProyectoWebIIIRepo\ProyectoWIII.Logica\obj\Debug\net6.0\Rompecabezas.Logica.AssemblyInfoInputs.cache
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\ProyectoWebIIIRepo\ProyectoWIII.Logica\obj\Debug\net6.0\Rompecabezas.Logica.AssemblyInfo.cs
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\ProyectoWebIIIRepo\ProyectoWIII.Logica\obj\Debug\net6.0\Rompecabezas.Logica.csproj.CoreCompileInputs.cache
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\ProyectoWebIIIRepo\ProyectoWIII.Logica\obj\Debug\net6.0\Rompecabezas.Logica.dll
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\ProyectoWebIIIRepo\ProyectoWIII.Logica\obj\Debug\net6.0\refint\Rompecabezas.Logica.dll
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\ProyectoWebIIIRepo\ProyectoWIII.Logica\obj\Debug\net6.0\Rompecabezas.Logica.pdb
+C:\Users\Lu\OneDrive\Documentos\0_UNLAM\ProyectoWebIIIRepo\ProyectoWIII.Logica\obj\Debug\net6.0\ref\Rompecabezas.Logica.dll

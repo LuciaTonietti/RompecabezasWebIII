@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Rompezabeza.Logica/1.0.0": {
+        "runtime": {
+          "Rompezabeza.Logica.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Rompezabeza.Logica/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
