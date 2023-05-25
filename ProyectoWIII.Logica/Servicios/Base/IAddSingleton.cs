@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoWIII.Logica.Servicios.Base
+namespace Rompecabezas.Logica.Servicios.Base
 {
     public interface IAddSingleton
     {
