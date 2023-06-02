@@ -4,7 +4,7 @@ namespace Rompecabezas.Web.Controllers
 {
     public class SalaController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Crear()
         {
             return View();
         }

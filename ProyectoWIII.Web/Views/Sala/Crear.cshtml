@@ -1,0 +1,24 @@
+﻿@model Rompecabezas.Logica.Entidades.Sala
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+<form method="post" enctype="text/plain" asp-action="Agregar" asp-controller="Sala">
+    <label asp-for="@Model.NombreUsuarioCreador">Nombre Usuario</label>
+    <input asp-for="@Model.NombreUsuarioCreador" />
+    <span asp-validation-for="@Model.NombreUsuarioCreador"></span>
+
+    <label asp-for="@Model.CantPiezas">Cantidad Piezas</label>
+    <select asp-for="@Model.CantPiezas">
+        <option value="" selected>Seleccionar cantidad</option>
+        <option value="9">9</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+    </select>
+    <span asp-validation-for="@Model.CantPiezas"></span>
+
+    <label asp-for="@Model.Pin">Pin</label>
+    <input asp-for="@Model.Pin"/>
+    <span asp-validation-for="@Model.Pin"></span>
+
+    <input type="submit" value="Crear" />
+</form>
