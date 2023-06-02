@@ -2,7 +2,7 @@
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
 }
-<form method="post" enctype="text/plain" asp-action="Agregar" asp-controller="Sala">
+<form method="post" asp-action="Crear" asp-controller="Sala">
     <label asp-for="@Model.NombreUsuarioCreador">Nombre Usuario</label>
     <input asp-for="@Model.NombreUsuarioCreador" />
     <span asp-validation-for="@Model.NombreUsuarioCreador"></span>
