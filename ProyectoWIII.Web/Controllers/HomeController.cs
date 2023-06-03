@@ -15,6 +15,7 @@ namespace Rompecabezas.Web.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.ErrorPin = TempData["ErrorPin"];
             return View();
         }
 
