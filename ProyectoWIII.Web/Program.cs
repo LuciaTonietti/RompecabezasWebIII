@@ -15,6 +15,7 @@ namespace Rompecabezas.Web
             builder.Services.AddSingleton<IEntityFrameworkService,EntityFrameworkService>();
             builder.Services.AddDbContext<RompeCabezaPw3Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RompeCabezaPW3")));
 
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
