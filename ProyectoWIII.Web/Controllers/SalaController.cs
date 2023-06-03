@@ -1,17 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Rompecabezas.Logica.Entidades;
+using Rompecabezas.Logica.Models;
 using Rompecabezas.Logica.Servicios;
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
+
 
 namespace Rompecabezas.Web.Controllers
 {
     public class SalaController : Controller
     {
-        private ISalaService _salaService;
-        public SalaController(ISalaService salaService)
+        private readonly ISalaService _entityFrameworkService;
+        public SalaController(ISalaService entityFrameworkService)
         {
-            _salaService = salaService;
+            _entityFrameworkService = entityFrameworkService;
         }
 
         public IActionResult Crear()
@@ -20,16 +19,21 @@ namespace Rompecabezas.Web.Controllers
         }
         
         [HttpPost]
-        public IActionResult Crear(IFormCollection form)
+        public IActionResult Crear(Sala sala)
         {
             if (ModelState.IsValid)
             {
-                Sala sala = new Sala();
-                sala.NombreUsuarioCreador = form["NombreUsuarioCreador"];
-                sala.CantPiezas = int.Parse(form["CantPiezas"]);
-                string Pin = form["Pin"];
-                sala.Pin = string.IsNullOrEmpty(Pin) ? null : Pin;
-                return View("Sala", sala);
+                if (!_entityFrameworkService.EstaReptidoElNickName(sala.NickName))
+                {
+                    Sala? guardada = _entityFrameworkService.AgregarSala(sala);
+                    if (guardada != null)
+                    {
+                        return View("Sala", guardada);
+                    }
+                }
+                ViewBag.Message = "El nombre ingresado ya está en uso!";
+                ViewBag.Classes = "alert alert-danger text-center row col-lg-4";
+                return View();
             }
             return View();
         }
@@ -40,34 +44,18 @@ namespace Rompecabezas.Web.Controllers
             {
                 int nroSala = int.Parse(form["nroSala"]);
                 string pinIngresado = form["pin"];
-                string nombreUsuario = form["nombreUsuario"];
-                Sala sala = _salaService.ObtenerSala((int)nroSala);
-                if (!string.IsNullOrEmpty(sala.Pin))
+                string nombreUsuario = form["NickName"];
+                try
                 {
-                    string resultadoVerificacion = this.VerificarPin(sala.Pin, pinIngresado);
-                    if (!string.IsNullOrEmpty(resultadoVerificacion))
-                    {
-                        TempData["ErrorPin"] = resultadoVerificacion;
-                        return RedirectToAction("Index", "Home");
-                    }
+                    Sala sala = _entityFrameworkService.ObtenerSala(nroSala, pinIngresado, nombreUsuario);
+                    return View("Sala", sala);
                 }
-                return View("Sala", sala);
+                catch (Exception ex)
+                {
+                    TempData["ErrorPin"] = ex.Message;
+                } 
             }
             return RedirectToAction("Index", "Home");
-        }
-
-        private string VerificarPin(string pinSala, string pinIngresado)
-        {
-            string msnjError = null;
-            if (string.IsNullOrEmpty(pinIngresado))
-            {
-                msnjError = "La sala es privada debe Ingresar un PIN.";
-            }
-            if (string.IsNullOrEmpty(msnjError) && !pinIngresado.Equals(pinSala))
-            {
-                msnjError = "EL PIN ingresado no es valido.";
-            }
-            return msnjError;
         }
     }
 }

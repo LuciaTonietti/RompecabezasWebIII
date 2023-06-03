@@ -1,11 +1,11 @@
-﻿@model Rompecabezas.Logica.Entidades.Sala
+﻿@model Rompecabezas.Logica.Models.Sala
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
 }
 <form method="post" asp-action="Ingresar" asp-controller="Sala">
-    <label asp-for="@Model.NombreUsuarioCreador">Nombre Usuario</label>
-    <input asp-for="@Model.NombreUsuarioCreador" />
-    <span asp-validation-for="@Model.NombreUsuarioCreador"></span>
+    <label asp-for="@Model.NickName">Nombre Usuario</label>
+    <input asp-for="@Model.NickName" />
+    <span asp-validation-for="@Model.NickName"></span>
 
     <label>Numero de sala</label>
     <input type="text" required name="nroSala" />
