@@ -1,4 +1,6 @@
-using Rompecabezas.Logica.Servicios.Base;
+using Microsoft.EntityFrameworkCore;
+using Rompecabezas.Logica.Models;
+using Rompecabezas.Logica.Servicios;
 
 namespace Rompecabezas.Web
 {
@@ -10,7 +12,8 @@ namespace Rompecabezas.Web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddSingleton<IAddSingleton, AddSingleton>();
+            builder.Services.AddSingleton<IEntityFrameworkService,EntityFrameworkService>();
+            builder.Services.AddDbContext<RompeCabezaPw3Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RompeCabezaPW3")));
 
             var app = builder.Build();
 
