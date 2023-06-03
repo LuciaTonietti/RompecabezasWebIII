@@ -1,3 +1,4 @@
+using Rompecabezas.Logica.Servicios;
 using Rompecabezas.Logica.Servicios.Base;
 
 namespace Rompecabezas.Web
@@ -11,6 +12,7 @@ namespace Rompecabezas.Web
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddSingleton<IAddSingleton, AddSingleton>();
+            builder.Services.AddSingleton<ISalaService, SalaService>();
 
             var app = builder.Build();
 
