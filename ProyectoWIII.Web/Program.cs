@@ -1,5 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Rompecabezas.Logica.Models;
 using Rompecabezas.Logica.Servicios;
-using Rompecabezas.Logica.Servicios.Base;
 using SignalR.Web.Hubs;
 
 namespace Rompecabezas.Web
@@ -12,8 +13,8 @@ namespace Rompecabezas.Web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddSingleton<IAddSingleton, AddSingleton>();
-            builder.Services.AddSingleton<ISalaService, SalaService>();
+            builder.Services.AddScoped<ISalaService,SalaServiceImpl>();
+            builder.Services.AddDbContext<RompeCabezaPw3Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RompeCabezaPw3Context")));
             builder.Services.AddSignalR();
 
             var app = builder.Build();
