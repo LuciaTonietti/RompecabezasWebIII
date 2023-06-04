@@ -1,5 +1,6 @@
 using Rompecabezas.Logica.Servicios;
 using Rompecabezas.Logica.Servicios.Base;
+using SignalR.Web.Hubs;
 
 namespace Rompecabezas.Web
 {
@@ -13,6 +14,7 @@ namespace Rompecabezas.Web
             builder.Services.AddControllersWithViews();
             builder.Services.AddSingleton<IAddSingleton, AddSingleton>();
             builder.Services.AddSingleton<ISalaService, SalaService>();
+            builder.Services.AddSignalR();
 
             var app = builder.Build();
 
@@ -34,6 +36,7 @@ namespace Rompecabezas.Web
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.MapHub<PuzzleHub>("/puzzleHub");
 
             app.Run();
         }

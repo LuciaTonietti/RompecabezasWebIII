@@ -1,4 +1,13 @@
-﻿var cantidadPiezas = 25;
+﻿var cantidadPiezas = 9;
+var connection = new signalR.HubConnectionBuilder().withUrl("/puzzleHub").build();
+
+connection.on("RecibirGanador", function () {
+    console.log("Hay un ganador.");
+});
+
+connection.start().then(function () {
+    console.log("Conectado.");
+})
 
 const imagenes = crearArrayImagenes(cantidadPiezas);
 
