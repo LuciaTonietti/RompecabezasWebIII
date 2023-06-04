@@ -1,5 +1,4 @@
-﻿var cantidadPiezas = 9;
-var connection = new signalR.HubConnectionBuilder().withUrl("/puzzleHub").build();
+﻿var connection = new signalR.HubConnectionBuilder().withUrl("/puzzleHub").build();
 
 connection.on("RecibirGanador", function () {
     console.log("Hay un ganador.");
@@ -9,12 +8,12 @@ connection.start().then(function () {
     console.log("Conectado.");
 })
 
-const imagenes = crearArrayImagenes(cantidadPiezas);
+const imagenes = crearArrayImagenes(cantPiezas);
 
 const puzzle = document.getElementById('puzzle');
 const piezas = document.getElementById('piezas');
 const mensaje = document.getElementById('mensaje');
-switch (cantidadPiezas) {
+switch (cantPiezas) {
     case 9:
         puzzle.classList.add('puzzle-9-piezas');
         piezas.classList.add('piezas-9');
@@ -29,7 +28,7 @@ let terminado = imagenes.length;
 while (imagenes.length) {
     const index = Math.floor(Math.random() * imagenes.length);
     const div = document.createElement('div');
-    switch (cantidadPiezas) {
+    switch (cantPiezas) {
         case 9:
             div.className = 'pieza-9';
             break;
@@ -38,14 +37,14 @@ while (imagenes.length) {
     }    
     div.id = imagenes[index];
     div.draggable = true;
-    div.style.backgroundImage = `url("/imagenes/${cantidadPiezas}-piezas/${imagenes[index]}.jpg")`;
+    div.style.backgroundImage = `url("/imagenes/${cantPiezas}-piezas/${imagenes[index]}.jpg")`;
     piezas.appendChild(div);
     imagenes.splice(index, 1);
 }
 
 for (let i = 0; i < terminado; i++) {
     const div = document.createElement('div');
-    switch (cantidadPiezas) {
+    switch (cantPiezas) {
         case 9:
             div.className = 'placeholder-puzzle-9-piezas';
             break;
