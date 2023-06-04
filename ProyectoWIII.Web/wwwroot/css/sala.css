@@ -1,0 +1,71 @@
+﻿body {
+    font-family: Arial, Verdana, sans-serif;
+}
+
+#piezas {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    margin: auto;
+    justify-content: center;
+}
+
+#puzzle {
+    border: 1px solid black;
+    width: 318px;
+    height: 495px;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: content-box;
+    margin: auto;
+}
+
+.pieza {
+    width: 106px;
+    height: 165px;
+    background-size: cover;
+    margin: 10px;
+}
+
+.placeholder-puzzle {
+    background-color: #F2F2F2;
+    outline: 1px solid #333;
+    width: 106px;
+    height: 165px;
+    transition: 1s;
+}
+
+    .placeholder-puzzle.hover {
+        background-color: orange;
+    }
+
+    .placeholder-puzzle .pieza {
+        margin: 0;
+    }
+
+#mensaje {
+    color: black;
+    text-align: center;
+    display: none;
+}
+
+.ganaste {
+    background-color: #B3D67C;
+}
+
+    .ganaste #mensaje {
+        display: block;
+    }
+
+    .ganaste .placeholder-puzzle {
+        outline: none;
+    }
+
+    .ganaste #piezas {
+        display: none;
+    }
+
+.container-puzzle {
+    display: flex;
+    flex-wrap: wrap;
+}

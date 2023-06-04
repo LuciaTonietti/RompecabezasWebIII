@@ -1,5 +1,11 @@
 ﻿@model Rompecabezas.Logica.Entidades.Sala
-
-<h1>Aca deberia aparecer el rompecabezas</h1>
-<h1>CAntidad Piezas: @Model.CantPiezas</h1>
-<h1>CAntidad Piezas: @Model.NombreUsuarioCreador</h1>
+<script>
+    var cantPiezas = @Model.CantPiezas;
+</script>
+<link rel="stylesheet" type="text/css" href="~/css/sala.css">
+<div class="container-puzzle">
+    <div id="puzzle"></div>
+    <div id="piezas"></div>
+</div>
+<h1 id="mensaje">¡Ganaste!</h1>
+<script src="~/js/sala.js"></script>
