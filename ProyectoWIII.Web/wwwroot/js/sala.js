@@ -1,31 +1,48 @@
-﻿console.log(cantPiezas);
+﻿var cantidadPiezas = 25;
 
-const imagenes = [
-    'imagen-0', 'imagen-1', 'imagen-2',
-    'imagen-3', 'imagen-4', 'imagen-5',
-    'imagen-6', 'imagen-7', 'imagen-8'
-];
+const imagenes = crearArrayImagenes(cantidadPiezas);
 
 const puzzle = document.getElementById('puzzle');
 const piezas = document.getElementById('piezas');
 const mensaje = document.getElementById('mensaje');
+switch (cantidadPiezas) {
+    case 9:
+        puzzle.classList.add('puzzle-9-piezas');
+        piezas.classList.add('piezas-9');
+        break;
+    case 25:
+        puzzle.classList.add('puzzle-25-piezas');
+        piezas.classList.add('piezas-25');
+}
 
 let terminado = imagenes.length;
 
 while (imagenes.length) {
     const index = Math.floor(Math.random() * imagenes.length);
     const div = document.createElement('div');
-    div.className = 'pieza';
+    switch (cantidadPiezas) {
+        case 9:
+            div.className = 'pieza-9';
+            break;
+        case 25:
+            div.className = 'pieza-25';
+    }    
     div.id = imagenes[index];
     div.draggable = true;
-    div.style.backgroundImage = `url("/imagenes/${cantPiezas}-piezas/${imagenes[index]}.jpg")`;
+    div.style.backgroundImage = `url("/imagenes/${cantidadPiezas}-piezas/${imagenes[index]}.jpg")`;
     piezas.appendChild(div);
     imagenes.splice(index, 1);
 }
 
 for (let i = 0; i < terminado; i++) {
     const div = document.createElement('div');
-    div.className = 'placeholder-puzzle';
+    switch (cantidadPiezas) {
+        case 9:
+            div.className = 'placeholder-puzzle-9-piezas';
+            break;
+        case 25:
+            div.className = 'placeholder-puzzle-25-piezas';
+    }
     div.dataset.id = i;
     puzzle.appendChild(div);
 }
@@ -46,10 +63,11 @@ puzzle.addEventListener('dragleave', e => {
 
 puzzle.addEventListener('drop', e => {
     e.target.classList.remove('hover');
-
+    
     const id = e.dataTransfer.getData('id');
+    console.log("id: ", id);
     const numero = id.split('-')[1];
-
+    console.log("e.target.dataset.id", e.target.dataset.id);
     if (e.target.dataset.id === numero) {
         e.target.appendChild(document.getElementById(id));
 
@@ -63,3 +81,12 @@ puzzle.addEventListener('drop', e => {
         }
     }
 });
+
+function crearArrayImagenes(numElementos) {
+    const imagenes = [];
+    for (let i = 0; i < numElementos; i++) {
+        const imagen = `paisaje-${i}`;
+        imagenes.push(imagen);
+    }
+    return imagenes;
+}
