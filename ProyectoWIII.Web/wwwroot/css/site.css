@@ -15,4 +15,33 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-image: linear-gradient(#f23054, #f21b7f, #f25116, #f23a29)
+}
+
+.form-conteiner {
+    position: relative;
+    top: 150px;
+    background-color: white;
+    width: 350px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+    opacity: 0.5;
+    border-radius: 5px;
+}
+
+.form-group{
+    display: flex;
+    width: 200px;
+    height: 30px;
+    font-family: Arial;
+    color: black;
+}
+
+.form-group input{
+    display: flex;
+
+    border-radius: 0.5;
+    width: 150px;
 }
