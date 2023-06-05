@@ -7,6 +7,7 @@ CREATE TABLE Sala(
 	id INT IDENTITY(1,1) PRIMARY KEY,
 	nickName VARCHAR(256) unique,
 	cant_pieces INT,
+	limite_participantes int,
 	pin VARCHAR(4),
 	nroSala INT,
 );
