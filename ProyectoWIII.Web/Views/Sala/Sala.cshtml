@@ -1,11 +1,16 @@
 ﻿@model Rompecabezas.Logica.Models.Sala
 <script>
     var cantPiezas = @Model.CantPieces;
+    var nombreUsuario = '@ViewBag.NombreUsuario';
 </script>
+<h1>@ViewBag.NombreUsuario</h1>
 <link rel="stylesheet" type="text/css" href="~/css/sala.css">
 <div class="container-puzzle">
     <div id="puzzle"></div>
     <div id="piezas"></div>
+</div>
+<div id="miPopup">
+    <button onclick="cerrarPopup()">Cerrar</button>
 </div>
 <h1 id="mensaje">¡Ganaste!</h1>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>

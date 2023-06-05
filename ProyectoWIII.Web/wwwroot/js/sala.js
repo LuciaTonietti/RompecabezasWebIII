@@ -1,7 +1,12 @@
 ﻿var connection = new signalR.HubConnectionBuilder().withUrl("/puzzleHub").build();
 
-connection.on("RecibirGanador", function () {
-    console.log("Hay un ganador.");
+connection.on("RecibirGanador", function (ganador) {
+    var div = document.getElementById('miPopup');
+    var p = document.createElement('p');
+    p.textContent = `El ganador es ${ganador}`;
+    div.appendChild(p);
+    div.style.display = 'block';
+    console.log(`El ganador es ${ganador}`);
 });
 
 connection.start().then(function () {
@@ -93,7 +98,7 @@ puzzle.addEventListener('drop', e => {
 
         if (terminado === 0) {
             document.body.classList.add('ganaste');
-            connection.invoke("EnviarGanador").catch(function (err) {
+            connection.invoke("EnviarGanador", nombreUsuario).catch(function (err) {
                 return console.error(err.toString());
             });
         }
@@ -107,4 +112,9 @@ function crearArrayImagenes(numElementos) {
         imagenes.push(imagen);
     }
     return imagenes;
+}
+
+function cerrarPopup() {
+    var popup = document.getElementById("miPopup");
+    popup.style.display = "none";
 }

@@ -4,9 +4,9 @@ namespace SignalR.Web.Hubs
 {
     public class PuzzleHub : Hub
     {
-        public async Task EnviarGanador()
+        public async Task EnviarGanador(string ganador)
         {
-            await Clients.All.SendAsync("RecibirGanador");
+            await Clients.Others.SendAsync("RecibirGanador", ganador);
         }
     }
 }

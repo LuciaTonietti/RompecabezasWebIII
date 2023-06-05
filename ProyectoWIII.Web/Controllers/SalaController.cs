@@ -48,6 +48,7 @@ namespace Rompecabezas.Web.Controllers
                 try
                 {
                     Sala sala = _entityFrameworkService.ObtenerSala(nroSala, pinIngresado, nombreUsuario);
+                    ViewBag.NombreUsuario = nombreUsuario;
                     return View("Sala", sala);
                 }
                 catch (Exception ex)
