@@ -15,6 +15,7 @@ CREATE TABLE Sala(
 	cant_pieces INT,
 	pin VARCHAR(4),
 	score_map INT,
+	nroSala INT,
 	FOREIGN KEY (score_map) REFERENCES ScoreMap(id)
 );
 go

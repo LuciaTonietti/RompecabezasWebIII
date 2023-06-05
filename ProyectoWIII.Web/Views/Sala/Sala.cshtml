@@ -1,5 +1,12 @@
 ﻿@model Rompecabezas.Logica.Models.Sala
-
-<h1>Aca deberia aparecer el rompecabezas</h1>
-<h1>CAntidad Piezas: @Model.CantPieces</h1>
-<h1>Usuario Creador: @Model.NickName</h1>
+<script>
+    var cantPiezas = @Model.CantPieces;
+</script>
+<link rel="stylesheet" type="text/css" href="~/css/sala.css">
+<div class="container-puzzle">
+    <div id="puzzle"></div>
+    <div id="piezas"></div>
+</div>
+<h1 id="mensaje">¡Ganaste!</h1>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/sala.js"></script>
