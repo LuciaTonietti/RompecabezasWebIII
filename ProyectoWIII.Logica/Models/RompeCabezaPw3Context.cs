@@ -27,14 +27,15 @@ public partial class RompeCabezaPw3Context : DbContext
     {
         modelBuilder.Entity<Sala>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Sala__3213E83F7B966640");
+            entity.HasKey(e => e.Id).HasName("PK__Sala__3213E83F37500100");
 
             entity.ToTable("Sala");
 
-            entity.HasIndex(e => e.NickName, "UQ__Sala__48F06EC1660F7A94").IsUnique();
+            entity.HasIndex(e => e.NickName, "UQ__Sala__48F06EC1F722D63A").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CantPieces).HasColumnName("cant_pieces");
+            entity.Property(e => e.LimiteParticipantes).HasColumnName("limite_participantes");
             entity.Property(e => e.NickName)
                 .HasMaxLength(256)
                 .IsUnicode(false)
@@ -48,11 +49,11 @@ public partial class RompeCabezaPw3Context : DbContext
 
         modelBuilder.Entity<ScoreMap>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ScoreMap__3213E83FC63D5E09");
+            entity.HasKey(e => e.Id).HasName("PK__ScoreMap__3213E83FF2E848FF");
 
             entity.ToTable("ScoreMap");
 
-            entity.HasIndex(e => e.NickName, "UQ__ScoreMap__48F06EC15026E538").IsUnique();
+            entity.HasIndex(e => e.NickName, "UQ__ScoreMap__48F06EC1011E25CA").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.NickName)
@@ -64,7 +65,7 @@ public partial class RompeCabezaPw3Context : DbContext
 
             entity.HasOne(d => d.SalaNavigation).WithMany(p => p.ScoreMaps)
                 .HasForeignKey(d => d.Sala)
-                .HasConstraintName("FK__ScoreMap__sala__693CA210");
+                .HasConstraintName("FK__ScoreMap__sala__7D439ABD");
         });
 
         OnModelCreatingPartial(modelBuilder);
