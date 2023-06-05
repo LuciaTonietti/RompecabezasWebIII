@@ -27,13 +27,11 @@ public partial class RompeCabezaPw3Context : DbContext
     {
         modelBuilder.Entity<Sala>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Sala__3213E83FB96B91CF");
+            entity.HasKey(e => e.Id).HasName("PK__Sala__3213E83F7B966640");
 
             entity.ToTable("Sala");
 
-            entity.HasIndex(e => e.NroSala, "UQ__Sala__2BC8C396D9AD2EB6").IsUnique();
-
-            entity.HasIndex(e => e.NickName, "UQ__Sala__48F06EC1E2610110").IsUnique();
+            entity.HasIndex(e => e.NickName, "UQ__Sala__48F06EC1660F7A94").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CantPieces).HasColumnName("cant_pieces");
@@ -46,27 +44,27 @@ public partial class RompeCabezaPw3Context : DbContext
                 .HasMaxLength(4)
                 .IsUnicode(false)
                 .HasColumnName("pin");
-            entity.Property(e => e.ScoreMap).HasColumnName("score_map");
-
-            entity.HasOne(d => d.ScoreMapNavigation).WithMany(p => p.Salas)
-                .HasForeignKey(d => d.ScoreMap)
-                .HasConstraintName("FK__Sala__score_map__3B75D760");
         });
 
         modelBuilder.Entity<ScoreMap>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ScoreMap__3213E83FD44AB7CA");
+            entity.HasKey(e => e.Id).HasName("PK__ScoreMap__3213E83FC63D5E09");
 
             entity.ToTable("ScoreMap");
 
-            entity.HasIndex(e => e.NickName, "UQ__ScoreMap__48F06EC106A675F6").IsUnique();
+            entity.HasIndex(e => e.NickName, "UQ__ScoreMap__48F06EC15026E538").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.NickName)
                 .HasMaxLength(256)
                 .IsUnicode(false)
                 .HasColumnName("nickName");
+            entity.Property(e => e.Sala).HasColumnName("sala");
             entity.Property(e => e.Score).HasColumnName("score");
+
+            entity.HasOne(d => d.SalaNavigation).WithMany(p => p.ScoreMaps)
+                .HasForeignKey(d => d.Sala)
+                .HasConstraintName("FK__ScoreMap__sala__693CA210");
         });
 
         OnModelCreatingPartial(modelBuilder);

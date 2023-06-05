@@ -8,13 +8,15 @@
     <span asp-validation-for="@Model.NickName"></span>
 
     <label>Numero de sala</label>
-    <input type="text" required name="nroSala" />
+    <input type="text" required name="nroSala" id="NroSala" />
 
     <label asp-for="@Model.Pin">Pin</label>
     <input asp-for="@Model.Pin" />
     <span asp-validation-for="@Model.Pin"></span>
     <span>@ViewBag.ErrorPin</span>
 
-    <input type="submit" value="Ingresar" />
+    <input type="submit" value="Ingresar" id="ingresar"/>
 </form>
 <a asp-controller="Sala" asp-action="Crear">Crear Sala</a>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/salaHub.js"></script>

@@ -3,10 +3,43 @@
     var cantPiezas = @Model.CantPieces;
 </script>
 <link rel="stylesheet" type="text/css" href="~/css/sala.css">
+<div class="text-center">
+    <b>Nro. Sala: @Model.NroSala</b>
+</div>
 <div class="container-puzzle">
     <div id="puzzle"></div>
     <div id="piezas"></div>
 </div>
 <h1 id="mensaje">¡Ganaste!</h1>
+
+<div class="container row col-lg-auto" id="nuevoIngreso">
+    
+</div>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/sala.js"></script>
+<script src="~/js/salaHub.js"></script>
+
+<script>
+    //crear conexion
+    const salaHubConnection = new signalR.HubConnectionBuilder()
+        .withUrl("/salaHub")
+        .build();
+
+    //iniciar la conexion
+    salaHubConnection.start().then(function () {
+        unirseASala("@Model.NroSala", "@ViewBag.NuevoPartipante");
+        console.log("Conexion exitosa!");
+    }).catch(function (error) {
+        console.error(error.toString());
+    });
+
+    function unirseASala(nroSala, usuario) {
+        salaHubConnection.invoke("UnirseASala", nroSala, usuario).catch(function (err) {
+            return console.error(err.toString());
+        });
+    }
+    salaHubConnection.on("RecibirMensaje", function (usuario, mensaje) {
+        var message = "<div><b>" + mensaje + "</b></div>";
+        document.getElementById("nuevoIngreso").innerHTML = message + document.getElementById("nuevoIngreso").innerHTML;
+    });
+</script>

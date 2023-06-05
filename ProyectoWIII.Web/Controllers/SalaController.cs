@@ -28,6 +28,7 @@ namespace Rompecabezas.Web.Controllers
                     Sala? guardada = _entityFrameworkService.AgregarSala(sala);
                     if (guardada != null)
                     {
+                        ViewBag.NuevoPartipante = guardada.NickName;
                         return View("Sala", guardada);
                     }
                 }
@@ -48,6 +49,7 @@ namespace Rompecabezas.Web.Controllers
                 try
                 {
                     Sala sala = _entityFrameworkService.ObtenerSala(nroSala, pinIngresado, nombreUsuario);
+                    ViewBag.NuevoPartipante = nombreUsuario;
                     return View("Sala", sala);
                 }
                 catch (Exception ex)
