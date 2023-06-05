@@ -18,6 +18,10 @@ switch (cantPiezas) {
         puzzle.classList.add('puzzle-9-piezas');
         piezas.classList.add('piezas-9');
         break;
+    case 16:
+        puzzle.classList.add('puzzle-16-piezas');
+        piezas.classList.add('piezas-16');
+        break;
     case 25:
         puzzle.classList.add('puzzle-25-piezas');
         piezas.classList.add('piezas-25');
@@ -31,6 +35,9 @@ while (imagenes.length) {
     switch (cantPiezas) {
         case 9:
             div.className = 'pieza-9';
+            break;
+        case 16:
+            div.className = 'pieza-16';
             break;
         case 25:
             div.className = 'pieza-25';
@@ -47,6 +54,9 @@ for (let i = 0; i < terminado; i++) {
     switch (cantPiezas) {
         case 9:
             div.className = 'placeholder-puzzle-9-piezas';
+            break;
+        case 16:
+            div.className = 'placeholder-puzzle-16-piezas';
             break;
         case 25:
             div.className = 'placeholder-puzzle-25-piezas';

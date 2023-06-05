@@ -18,6 +18,14 @@
     justify-content: center;
 }
 
+.piezas-16 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 480px;
+    margin: auto;
+    justify-content: center;
+}
+
 .puzzle-9-piezas {
     border: 1px solid black;
     width: 318px;
@@ -38,6 +46,16 @@
     margin: auto;
 }
 
+.puzzle-16-piezas {
+    border: 1px solid black;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: content-box;
+    margin: auto;
+}
+
 .pieza-9 {
     width: 106px;
     height: 106px;
@@ -48,6 +66,13 @@
 .pieza-25 {
     width: 90px;
     height: 90px;
+    background-size: cover;
+    margin: 10px;
+}
+
+.pieza-16 {
+    width: 100px;
+    height: 100px;
     background-size: cover;
     margin: 10px;
 }
@@ -68,6 +93,14 @@
     transition: 1s;
 }
 
+.placeholder-puzzle-16-piezas {
+    background-color: #F2F2F2;
+    outline: 1px solid #333;
+    width: 100px;
+    height: 100px;
+    transition: 1s;
+}
+
 .placeholder-puzzle-9-piezas.hover {
     background-color: orange;
 }
@@ -76,7 +109,7 @@
     background-color: orange;
 }
 
-.placeholder-puzzle-25-piezas.hover {
+.placeholder-puzzle-16-piezas.hover {
     background-color: orange;
 }
 
@@ -85,6 +118,10 @@
 }
 
 .placeholder-puzzle-25-piezas .pieza-25 {
+    margin: 0;
+}
+
+.placeholder-puzzle-16-piezas .pieza-16 {
     margin: 0;
 }
 
