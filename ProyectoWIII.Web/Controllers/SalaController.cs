@@ -7,10 +7,10 @@ namespace Rompecabezas.Web.Controllers
 {
     public class SalaController : Controller
     {
-        private readonly ISalaService _entityFrameworkService;
+        private readonly ISalaService _salaService;
         public SalaController(ISalaService entityFrameworkService)
         {
-            _entityFrameworkService = entityFrameworkService;
+            _salaService = entityFrameworkService;
         }
 
         public IActionResult Crear()
@@ -23,11 +23,12 @@ namespace Rompecabezas.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (!_entityFrameworkService.EstaReptidoElNickName(sala.NickName))
+                if (!_salaService.EstaReptidoElNickName(sala.NickName))
                 {
-                    Sala? guardada = _entityFrameworkService.AgregarSala(sala);
+                    Sala? guardada = _salaService.AgregarSala(sala);
                     if (guardada != null)
                     {
+                        ViewBag.NuevoPartipante = guardada.NickName;
                         return View("Sala", guardada);
                     }
                 }
@@ -47,7 +48,8 @@ namespace Rompecabezas.Web.Controllers
                 string nombreUsuario = form["NickName"];
                 try
                 {
-                    Sala sala = _entityFrameworkService.ObtenerSala(nroSala, pinIngresado, nombreUsuario);
+                    Sala sala = _salaService.ObtenerSala(nroSala, pinIngresado, nombreUsuario);
+                    ViewBag.NuevoPartipante = nombreUsuario;
                     return View("Sala", sala);
                 }
                 catch (Exception ex)

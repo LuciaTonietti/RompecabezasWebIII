@@ -3,13 +3,11 @@ using System.Collections.Generic;
 
 namespace Rompecabezas.Logica.Models;
 
-public partial class ScoreMap
+public partial class Participante
 {
     public int Id { get; set; }
 
-    public string? NickName { get; set; }
-
-    public double? Score { get; set; }
+    public string? Nickname { get; set; }
 
     public int? Sala { get; set; }
 
