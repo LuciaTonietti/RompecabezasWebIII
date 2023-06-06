@@ -10,11 +10,31 @@ connection.on("RecibirGanador", function (ganador) {
 });
 
 connection.on("ActualizarListaJugadores", function (jugadoresConectados) {
-    console.log(jugadoresConectados);
+    var tablaPuntaje = document.getElementById('tablaPuntaje');
+    tablaPuntaje.innerHTML = "";
+    var thead = document.createElement('thead');
+    var tr = document.createElement('tr');
+    var th = document.createElement('th');
+    th.textContent = "Jugador";
+    var th1 = document.createElement('th');
+    th1.textContent = "Puntaje";
+    tr.appendChild(th);
+    tr.appendChild(th1);
+    thead.appendChild(tr);
+    tablaPuntaje.appendChild(thead);
+    for (let i = 0; i < jugadoresConectados.length; i++) {
+        var tr = document.createElement('tr');
+        var td = document.createElement('td');
+        var td2 = document.createElement('td');
+        td.textContent = jugadoresConectados[i]['nickName'];
+        td2.textContent = jugadoresConectados[i]['score'];
+        tr.appendChild(td);
+        tr.appendChild(td2);
+        tablaPuntaje.appendChild(tr);
+    }    
 });
 
 connection.start().then(function () {
-    console.log("Conectado.");
     connection.invoke("AgregarJugador", nombreUsuario).catch(function (err) {
         return console.error(err.toString());
     });
@@ -93,16 +113,13 @@ puzzle.addEventListener('dragleave', e => {
 
 puzzle.addEventListener('drop', e => {
     e.target.classList.remove('hover');
-    
+    console.log(nombreUsuario);
     const id = e.dataTransfer.getData('id');
-    console.log("id: ", id);
     const numero = id.split('-')[1];
-    console.log("e.target.dataset.id", e.target.dataset.id);
     if (e.target.dataset.id === numero) {
         e.target.appendChild(document.getElementById(id));
 
         terminado--;
-
         if (terminado === 0) {
             document.body.classList.add('ganaste');
             connection.invoke("EnviarGanador", nombreUsuario).catch(function (err) {
