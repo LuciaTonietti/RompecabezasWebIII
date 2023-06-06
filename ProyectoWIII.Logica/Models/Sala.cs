@@ -12,7 +12,7 @@ public partial class Sala
     public string? NickName { get; set; }
     [Required(ErrorMessage = "Por favor seleccione la cantidad de piezas.")]
     public int? CantPieces { get; set; }
-    [Required(ErrorMessage = "El limite de participantes es requerido!.")]
+    
     public int? LimiteParticipantes { get; set; }
 
     [StringLength(4, ErrorMessage = "El PIN debe tener exactamente 4 caracteres.")]
