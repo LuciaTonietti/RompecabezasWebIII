@@ -113,11 +113,15 @@ puzzle.addEventListener('dragleave', e => {
 
 puzzle.addEventListener('drop', e => {
     e.target.classList.remove('hover');
-    console.log(nombreUsuario);
+
     const id = e.dataTransfer.getData('id');
     const numero = id.split('-')[1];
     if (e.target.dataset.id === numero) {
         e.target.appendChild(document.getElementById(id));
+
+        connection.invoke("SumarPuntaje").catch(function (err) {
+            return console.error(err.toString());
+        });
 
         terminado--;
         if (terminado === 0) {
@@ -126,6 +130,10 @@ puzzle.addEventListener('drop', e => {
                 return console.error(err.toString());
             });
         }
+    } else {
+        connection.invoke("RestarPuntaje").catch(function (err) {
+            return console.error(err.toString());
+        });
     }
 });
 

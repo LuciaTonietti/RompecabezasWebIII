@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Rompecabezas.Logica.Entidades;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace SignalR.Web.Hubs
 {
@@ -26,6 +27,23 @@ namespace SignalR.Web.Hubs
             string connectionId = Context.ConnectionId;
             Jugador jugadorAEliminar = _jugadoresConectados.FirstOrDefault(jugador => jugador.IdConexion == connectionId);
             _jugadoresConectados.Remove(jugadorAEliminar);
+            await Clients.All.SendAsync("ActualizarListaJugadores", _jugadoresConectados);
+        }
+
+        public async Task SumarPuntaje()
+        {
+            string connectionId = Context.ConnectionId;
+            Jugador jugador = _jugadoresConectados.FirstOrDefault(jugador => jugador.IdConexion == connectionId);
+            jugador.Score += 3;
+            await Clients.All.SendAsync("ActualizarListaJugadores", _jugadoresConectados);
+        }
+
+        public async Task RestarPuntaje()
+        {
+            string connectionId = Context.ConnectionId;
+            Jugador jugador = _jugadoresConectados.FirstOrDefault(jugador => jugador.IdConexion == connectionId);
+            if(jugador.Score > 0)
+                jugador.Score --;
             await Clients.All.SendAsync("ActualizarListaJugadores", _jugadoresConectados);
         }
     }
