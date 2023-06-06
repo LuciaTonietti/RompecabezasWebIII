@@ -11,9 +11,11 @@ public partial class Sala
 
     public int? CantPieces { get; set; }
 
+    public int? LimiteParticipantes { get; set; }
+
     public string? Pin { get; set; }
 
-    public int? ScoreMap { get; set; }
+    public int? NroSala { get; set; }
 
-    public virtual ScoreMap? ScoreMapNavigation { get; set; }
+    public virtual ICollection<ScoreMap> ScoreMaps { get; set; } = new List<ScoreMap>();
 }

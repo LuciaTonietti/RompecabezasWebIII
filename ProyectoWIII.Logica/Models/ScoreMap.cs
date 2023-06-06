@@ -11,5 +11,7 @@ public partial class ScoreMap
 
     public double? Score { get; set; }
 
-    public virtual ICollection<Sala> Salas { get; set; } = new List<Sala>();
+    public int? Sala { get; set; }
+
+    public virtual Sala? SalaNavigation { get; set; }
 }
