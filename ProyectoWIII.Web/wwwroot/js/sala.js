@@ -10,28 +10,8 @@ connection.on("RecibirGanador", function (ganador) {
 });
 
 connection.on("ActualizarListaJugadores", function (jugadoresConectados) {
-    var tablaPuntaje = document.getElementById('tablaPuntaje');
-    tablaPuntaje.innerHTML = "";
-    var thead = document.createElement('thead');
-    var tr = document.createElement('tr');
-    var th = document.createElement('th');
-    th.textContent = "Jugador";
-    var th1 = document.createElement('th');
-    th1.textContent = "Puntaje";
-    tr.appendChild(th);
-    tr.appendChild(th1);
-    thead.appendChild(tr);
-    tablaPuntaje.appendChild(thead);
-    for (let i = 0; i < jugadoresConectados.length; i++) {
-        var tr = document.createElement('tr');
-        var td = document.createElement('td');
-        var td2 = document.createElement('td');
-        td.textContent = jugadoresConectados[i]['nickName'];
-        td2.textContent = jugadoresConectados[i]['score'];
-        tr.appendChild(td);
-        tr.appendChild(td2);
-        tablaPuntaje.appendChild(tr);
-    }    
+    verificarParticipantesConectados(jugadoresConectados);
+    actualizarTablaJugadores(jugadoresConectados);    
 });
 
 connection.start().then(function () {
@@ -140,7 +120,7 @@ puzzle.addEventListener('drop', e => {
 function crearArrayImagenes(numElementos) {
     const imagenes = [];
     for (let i = 0; i < numElementos; i++) {
-        const imagen = `paisaje-${i}`;
+        const imagen = `camino-${i}`;
         imagenes.push(imagen);
     }
     return imagenes;
@@ -149,4 +129,41 @@ function crearArrayImagenes(numElementos) {
 function cerrarPopup() {
     var popup = document.getElementById("miPopup");
     popup.style.display = "none";
+}
+
+function verificarParticipantesConectados(jugadoresConectados, div) {
+    var div = document.getElementById('cartelBienvenida');
+    if (jugadoresConectados.length >= 2) {
+        var valorDisplay = window.getComputedStyle(div).getPropertyValue("display");
+        if (valorDisplay != 'none') {
+            div.style.display = 'none';
+        }
+    }
+}
+
+function actualizarTablaJugadores(jugadoresConectados) {
+    var tablaPuntaje = document.getElementById('tablaPuntaje');
+    tablaPuntaje.innerHTML = "";
+    var thead = document.createElement('thead');
+    var tr = document.createElement('tr');
+    var th = document.createElement('th');
+    th.textContent = "Jugador";
+    var th1 = document.createElement('th');
+    th1.textContent = "Puntaje";
+    tr.appendChild(th);
+    tr.appendChild(th1);
+    thead.appendChild(tr);
+    tablaPuntaje.appendChild(thead);
+    for (let i = 0; i < jugadoresConectados.length; i++) {
+        var tr = document.createElement('tr');
+        var td = document.createElement('td');
+        var td2 = document.createElement('td');
+        td.textContent = jugadoresConectados[i]['nickName'];
+        td2.textContent = jugadoresConectados[i]['score'];
+        tr.appendChild(td);
+        tr.appendChild(td2);
+        tablaPuntaje.appendChild(tr);
+    }
+
+    
 }
