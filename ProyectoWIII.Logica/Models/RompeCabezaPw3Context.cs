@@ -27,13 +27,11 @@ public partial class RompeCabezaPw3Context : DbContext
     {
         modelBuilder.Entity<Sala>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Sala__3213E83FB96B91CF");
+            entity.HasKey(e => e.Id).HasName("PK__Sala__3213E83F3FEE6F19");
 
             entity.ToTable("Sala");
 
-            entity.HasIndex(e => e.NroSala, "UQ__Sala__2BC8C396D9AD2EB6").IsUnique();
-
-            entity.HasIndex(e => e.NickName, "UQ__Sala__48F06EC1E2610110").IsUnique();
+            entity.HasIndex(e => e.NickName, "UQ__Sala__48F06EC1D4A1B931").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CantPieces).HasColumnName("cant_pieces");
@@ -41,7 +39,6 @@ public partial class RompeCabezaPw3Context : DbContext
                 .HasMaxLength(256)
                 .IsUnicode(false)
                 .HasColumnName("nickName");
-            entity.Property(e => e.NroSala).HasColumnName("nroSala");
             entity.Property(e => e.Pin)
                 .HasMaxLength(4)
                 .IsUnicode(false)
@@ -55,11 +52,11 @@ public partial class RompeCabezaPw3Context : DbContext
 
         modelBuilder.Entity<ScoreMap>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ScoreMap__3213E83FD44AB7CA");
+            entity.HasKey(e => e.Id).HasName("PK__ScoreMap__3213E83FCE42F81D");
 
             entity.ToTable("ScoreMap");
 
-            entity.HasIndex(e => e.NickName, "UQ__ScoreMap__48F06EC106A675F6").IsUnique();
+            entity.HasIndex(e => e.NickName, "UQ__ScoreMap__48F06EC1D8A6FC91").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.NickName)
