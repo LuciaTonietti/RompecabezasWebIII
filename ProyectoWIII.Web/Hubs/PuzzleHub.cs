@@ -10,9 +10,9 @@ namespace SignalR.Web.Hubs
         private static List<Jugador> _jugadoresConectados = new List<Jugador>();
         private static Dictionary<int, List<Jugador>> _salaJugadores = new Dictionary<int, List<Jugador>>();
         private static Dictionary<string, int> _salaConecctionId = new Dictionary<string, int>();
-        public async Task EnviarGanador(string ganador)
+        public async Task EnviarGanador(string ganador, int nroSala)
         {
-            await Clients.Others.SendAsync("RecibirGanador", ganador);
+            await Clients.OthersInGroup(nroSala.ToString()).SendAsync("RecibirGanador", ganador);
         }
 
         public async Task AgregarJugador(string nombreJugador, int nroSala)
@@ -46,30 +46,25 @@ namespace SignalR.Web.Hubs
             await Clients.Group(nroSala.ToString()).SendAsync("ActualizarListaJugadores", jugadoresContectados);
         }
 
-        private int obtenerSalaPorIdConnection(string connectionId)
-        {
-            int nroSala;
-            nroSala = _salaConecctionId[connectionId];
-            return nroSala;
-        }
-
-        public async Task SumarPuntaje()
+        public async Task SumarPuntaje(int nroSala)
         {
             string connectionId = Context.ConnectionId;
-            Jugador jugador = _jugadoresConectados.FirstOrDefault(jugador => jugador.IdConexion == connectionId);
+            List<Jugador> jugadoresContectados = obtenerJugadoresSala(nroSala);
+            Jugador jugador = jugadoresContectados.FirstOrDefault(jugador => jugador.IdConexion == connectionId);
             jugador.Score += 3;
-            _jugadoresConectados.Sort((jugador1, jugador2) => jugador2.Score.CompareTo(jugador1.Score));
-            await Clients.All.SendAsync("ActualizarListaJugadores", _jugadoresConectados);
+            jugadoresContectados.Sort((jugador1, jugador2) => jugador2.Score.CompareTo(jugador1.Score));
+            await Clients.Group(nroSala.ToString()).SendAsync("ActualizarListaJugadores", jugadoresContectados);
         }
 
-        public async Task RestarPuntaje()
+        public async Task RestarPuntaje(int nroSala)
         {
             string connectionId = Context.ConnectionId;
-            Jugador jugador = _jugadoresConectados.FirstOrDefault(jugador => jugador.IdConexion == connectionId);
+            List<Jugador> jugadoresContectados = obtenerJugadoresSala(nroSala);
+            Jugador jugador = jugadoresContectados.FirstOrDefault(jugador => jugador.IdConexion == connectionId);
             if(jugador.Score > 0)
                 jugador.Score --;
-            _jugadoresConectados.Sort((jugador1, jugador2) => jugador2.Score.CompareTo(jugador1.Score));
-            await Clients.All.SendAsync("ActualizarListaJugadores", _jugadoresConectados);
+            jugadoresContectados.Sort((jugador1, jugador2) => jugador2.Score.CompareTo(jugador1.Score));
+            await Clients.Group(nroSala.ToString()).SendAsync("ActualizarListaJugadores", jugadoresContectados);
         }
         private List<Jugador> obtenerJugadoresSala(int nroSala)
         {
@@ -83,6 +78,12 @@ namespace SignalR.Web.Hubs
                 _salaJugadores[nroSala] = listaJugadores;
             }
             return listaJugadores;
+        }
+        private int obtenerSalaPorIdConnection(string connectionId)
+        {
+            int nroSala;
+            nroSala = _salaConecctionId[connectionId];
+            return nroSala;
         }
     }
 }
