@@ -1,11 +1,43 @@
 ﻿var connection = new signalR.HubConnectionBuilder().withUrl("/puzzleHub").build();
 
-connection.on("RecibirGanador", function () {
-    console.log("Hay un ganador.");
+connection.on("RecibirGanador", function (ganador) {
+    var div = document.getElementById('miPopup');
+    var p = document.createElement('p');
+    p.textContent = `El ganador es ${ganador}`;
+    div.appendChild(p);
+    div.style.display = 'block';
+    console.log(`El ganador es ${ganador}`);
+});
+
+connection.on("ActualizarListaJugadores", function (jugadoresConectados) {
+    var tablaPuntaje = document.getElementById('tablaPuntaje');
+    tablaPuntaje.innerHTML = "";
+    var thead = document.createElement('thead');
+    var tr = document.createElement('tr');
+    var th = document.createElement('th');
+    th.textContent = "Jugador";
+    var th1 = document.createElement('th');
+    th1.textContent = "Puntaje";
+    tr.appendChild(th);
+    tr.appendChild(th1);
+    thead.appendChild(tr);
+    tablaPuntaje.appendChild(thead);
+    for (let i = 0; i < jugadoresConectados.length; i++) {
+        var tr = document.createElement('tr');
+        var td = document.createElement('td');
+        var td2 = document.createElement('td');
+        td.textContent = jugadoresConectados[i]['nickName'];
+        td2.textContent = jugadoresConectados[i]['score'];
+        tr.appendChild(td);
+        tr.appendChild(td2);
+        tablaPuntaje.appendChild(tr);
+    }    
 });
 
 connection.start().then(function () {
-    console.log("Conectado.");
+    connection.invoke("AgregarJugador", nombreUsuario).catch(function (err) {
+        return console.error(err.toString());
+    });
 })
 
 const imagenes = crearArrayImagenes(cantPiezas);
@@ -81,22 +113,27 @@ puzzle.addEventListener('dragleave', e => {
 
 puzzle.addEventListener('drop', e => {
     e.target.classList.remove('hover');
-    
+
     const id = e.dataTransfer.getData('id');
-    console.log("id: ", id);
     const numero = id.split('-')[1];
-    console.log("e.target.dataset.id", e.target.dataset.id);
     if (e.target.dataset.id === numero) {
         e.target.appendChild(document.getElementById(id));
 
-        terminado--;
+        connection.invoke("SumarPuntaje").catch(function (err) {
+            return console.error(err.toString());
+        });
 
+        terminado--;
         if (terminado === 0) {
             document.body.classList.add('ganaste');
-            connection.invoke("EnviarGanador").catch(function (err) {
+            connection.invoke("EnviarGanador", nombreUsuario).catch(function (err) {
                 return console.error(err.toString());
             });
         }
+    } else {
+        connection.invoke("RestarPuntaje").catch(function (err) {
+            return console.error(err.toString());
+        });
     }
 });
 
@@ -107,4 +144,9 @@ function crearArrayImagenes(numElementos) {
         imagenes.push(imagen);
     }
     return imagenes;
+}
+
+function cerrarPopup() {
+    var popup = document.getElementById("miPopup");
+    popup.style.display = "none";
 }
