@@ -169,12 +169,7 @@ h2{
     }
 
     .form-group-crear span {
-       color: blue;
+       color: black;
        font-size: 15px;
        display: flex;
     }
-
-#select-participantes span{
-    color: blue;
-
-}

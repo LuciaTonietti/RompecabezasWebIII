@@ -1,5 +1,15 @@
-﻿body {
-    font-family: Arial, Verdana, sans-serif;
+﻿@font-face {
+    font-family: 'bungee-regular';
+    src: url('../fonts/bungee-regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'bungeeshade-regular';
+    src: url('../fonts/bungeeshade-regular.ttf') format('truetype');
+}
+
+body {
+    font-family: bungee-regular;
 }
 
 .piezas-9 {
@@ -125,6 +135,19 @@
     margin: 0;
 }
 
+.text-center b {
+    color: black;
+    background-color: white;
+    padding: 3px;
+}
+
+.text-center{
+    margin-top: 5px;
+    position: relative;
+    right: 30px;
+    margin: 5px;
+}
+
 #mensaje {
     color: black;
     text-align: center;
@@ -132,7 +155,7 @@
 }
 
 .ganaste {
-    background-color: #B3D67C;
+    background-color: #F2F2F2;
 }
 
     .ganaste #mensaje {
@@ -150,6 +173,7 @@
 .container-puzzle {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 #miPopup {
@@ -163,4 +187,9 @@
     border: 1px solid black;
     padding: 20px;
     display: none;
+}
+
+#tablaPuntaje {
+    background-color: white;
+    width: 180px;
 }
