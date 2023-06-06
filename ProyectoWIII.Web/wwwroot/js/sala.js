@@ -9,8 +9,15 @@ connection.on("RecibirGanador", function (ganador) {
     console.log(`El ganador es ${ganador}`);
 });
 
+connection.on("ActualizarListaJugadores", function (jugadoresConectados) {
+    console.log(jugadoresConectados);
+});
+
 connection.start().then(function () {
     console.log("Conectado.");
+    connection.invoke("AgregarJugador", nombreUsuario).catch(function (err) {
+        return console.error(err.toString());
+    });
 })
 
 const imagenes = crearArrayImagenes(cantPiezas);
