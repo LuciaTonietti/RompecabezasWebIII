@@ -69,6 +69,10 @@ h2{
     left: 35px;
 }
 
+#pin span{
+   display: flex;
+}
+
 .boton input {
     margin-top: 10px;
     width: 300px;
