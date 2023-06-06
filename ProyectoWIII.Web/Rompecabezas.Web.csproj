@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\fonts\Bungee-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ProyectoWIII.Logica\Rompecabezas.Logica.csproj" />
   </ItemGroup>
 

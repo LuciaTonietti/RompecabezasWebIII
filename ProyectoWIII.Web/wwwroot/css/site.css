@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'bungee-regular';
+    src: url('../fonts/bungee-regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'bungeeshade-regular';
+    src: url('../fonts/bungeeshade-regular.ttf') format('truetype');
+}
 html {
   font-size: 14px;
 }
@@ -15,7 +23,16 @@ html {
 
 body {
   margin-bottom: 60px;
-  background-image: linear-gradient(#f23054, #f21b7f, #f25116, #f23a29)
+  background-image: linear-gradient(#f23054, #f21b7f, #f25116, #f23a29);
+  font-family: bungee-regular;
+}
+
+h2{
+    color: white;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    font-family: bungeeshade-regular;
 }
 
 .form-conteiner {
@@ -27,21 +44,118 @@ body {
     padding: 20px;
     border: 1px solid #ccc;
     text-align: center;
-    opacity: 0.5;
     border-radius: 5px;
 }
 
+.form label {
+    color: #f21b7f;
+}
+
 .form-group{
-    display: flex;
+    text-align: start;
+}
+
+.form-group input {
     width: 200px;
     height: 30px;
-    font-family: Arial;
-    color: black;
+    border-radius: 5px;
+    border: 1px solid grey;
+    margin-top: 5px;
+    
 }
 
-.form-group input{
-    display: flex;
-
-    border-radius: 0.5;
-    width: 150px;
+#pin input{
+    position: relative;
+    left: 35px;
 }
+
+.boton input {
+    margin-top: 10px;
+    width: 300px;
+    height: 40px;
+    background-color: #f21D6B;
+    border: 0.1px solid #f21D6B;
+    border-radius: 5px;
+    color: white;
+    
+}
+
+.boton input:hover {
+    box-shadow: grey 5px 5px 10px 0px;
+    border-radius: 5px;
+}
+
+    .crear-sala {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+
+    .crear-sala a {
+        color: #f25116;
+        text-decoration: none;
+    }
+
+.form-contenedor-crear {
+    background-color: #f23054;
+    width: 500px;
+    height: 400px;
+    border-radius: 5px;
+    position: relative;
+    top: 50px;
+    left: 300px;
+    margin-top: 20px;
+    
+}
+
+.form-group-crear {
+    color: white;
+    position: relative;
+    left: 10px;
+    margin-top: 10px;
+
+}
+
+.form-group-crear input{
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+    position: relative;
+    left: 10px;
+}
+
+    .form-group-crear select {
+        border-radius: 5px;
+        width: 270px;
+        height: 35px;
+        border: none;
+        color: #f23054;
+        position: relative;
+        left: 10px;
+    }
+
+#pin-crear input{
+    position: relative;
+    left: 130px;
+}
+
+.form-group-crear-boton input {
+    background-color: #f23a29;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    width: 300px;
+    height: 40px;
+    position: relative;
+    left: 100px;
+    top: 50px;
+}
+
+    .form-group-crear-boton input:hover {
+        box-shadow: black 3px 3px 10px 0px;
+        border-radius: 5px;
+    }
+
+    .form-group-crear span {
+       font-size: 15px;
+       display: flex;
+    }
