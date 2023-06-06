@@ -15,7 +15,7 @@ connection.on("ActualizarListaJugadores", function (jugadoresConectados) {
 });
 
 connection.start().then(function () {
-    connection.invoke("AgregarJugador", nombreUsuario).catch(function (err) {
+    connection.invoke("AgregarJugador", nombreUsuario, nroSala).catch(function (err) {
         return console.error(err.toString());
     });
 })
