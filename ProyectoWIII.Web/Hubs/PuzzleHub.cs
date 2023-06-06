@@ -35,6 +35,7 @@ namespace SignalR.Web.Hubs
             string connectionId = Context.ConnectionId;
             Jugador jugador = _jugadoresConectados.FirstOrDefault(jugador => jugador.IdConexion == connectionId);
             jugador.Score += 3;
+            _jugadoresConectados.Sort((jugador1, jugador2) => jugador2.Score.CompareTo(jugador1.Score));
             await Clients.All.SendAsync("ActualizarListaJugadores", _jugadoresConectados);
         }
 
@@ -44,6 +45,7 @@ namespace SignalR.Web.Hubs
             Jugador jugador = _jugadoresConectados.FirstOrDefault(jugador => jugador.IdConexion == connectionId);
             if(jugador.Score > 0)
                 jugador.Score --;
+            _jugadoresConectados.Sort((jugador1, jugador2) => jugador2.Score.CompareTo(jugador1.Score));
             await Clients.All.SendAsync("ActualizarListaJugadores", _jugadoresConectados);
         }
     }
