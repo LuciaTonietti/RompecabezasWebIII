@@ -15,7 +15,7 @@ connection.on("ActualizarListaJugadores", function (jugadoresConectados) {
 });
 
 connection.start().then(function () {
-    connection.invoke("AgregarJugador", nombreUsuario).catch(function (err) {
+    connection.invoke("AgregarJugador", nombreUsuario, nroSala).catch(function (err) {
         return console.error(err.toString());
     });
 })
@@ -99,19 +99,19 @@ puzzle.addEventListener('drop', e => {
     if (e.target.dataset.id === numero) {
         e.target.appendChild(document.getElementById(id));
 
-        connection.invoke("SumarPuntaje").catch(function (err) {
+        connection.invoke("SumarPuntaje", nroSala).catch(function (err) {
             return console.error(err.toString());
         });
 
         terminado--;
         if (terminado === 0) {
             document.body.classList.add('ganaste');
-            connection.invoke("EnviarGanador", nombreUsuario).catch(function (err) {
+            connection.invoke("EnviarGanador", nombreUsuario, nroSala).catch(function (err) {
                 return console.error(err.toString());
             });
         }
     } else {
-        connection.invoke("RestarPuntaje").catch(function (err) {
+        connection.invoke("RestarPuntaje", nroSala).catch(function (err) {
             return console.error(err.toString());
         });
     }
