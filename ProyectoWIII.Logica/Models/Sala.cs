@@ -13,7 +13,7 @@ public partial class Sala
     [Required(ErrorMessage = "Por favor seleccione la cantidad de piezas.")]
     public int? CantPieces { get; set; }
     
-    public int? LimiteParticipantes { get; set; }
+   public int? LimiteParticipantes { get; set; }
 
     [StringLength(4, ErrorMessage = "El PIN debe tener exactamente 4 caracteres.")]
     [RegularExpression(@"^[0-9]{4}$", ErrorMessage = "El PIN debe ser un numero de 4 caracteres.")]

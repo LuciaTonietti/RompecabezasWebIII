@@ -11,12 +11,12 @@
 <div class="form-conteiner">
     <div class="form">
 <form method="post" asp-action="Ingresar" asp-controller="Sala">
-    <div class="form-group">
+    <div class="form-group" id="nombre">
         <label asp-for="@Model.NickName">Nombre</label>
         <input asp-for="@Model.NickName" />
         <span asp-validation-for="@Model.NickName"></span>
      </div>
-    <div class="form-group">
+    <div class="form-group" id="sala">
         <label>Sala N° </label>
         <input type="text" required name="nroSala" />
     </div>

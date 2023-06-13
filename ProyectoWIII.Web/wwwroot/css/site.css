@@ -21,6 +21,7 @@ html {
   min-height: 100%;
 }
 
+
 body {
   margin-bottom: 60px;
   background-image: linear-gradient(#f23054, #f21b7f, #f25116, #f23a29);
@@ -61,17 +62,15 @@ h2{
     border-radius: 5px;
     border: 1px solid grey;
     margin-top: 5px;
-    
+    position: relative;
+    left: 10px;
 }
 
 #pin input{
     position: relative;
-    left: 35px;
+    left: 45px;
 }
 
-#pin span{
-   display: flex;
-}
 
 .boton input {
     margin-top: 10px;
@@ -98,6 +97,8 @@ h2{
         color: #f25116;
         text-decoration: none;
     }
+
+
 
 .form-contenedor-crear {
     background-color: white;
@@ -173,3 +174,129 @@ h2{
        font-size: 15px;
        display: flex;
     }
+
+@media (max-width: 450px){
+
+h2{
+    color: white;
+    text-align: center;
+    display: block;
+    top: 100px;
+    font-family: bungeeshade-regular;
+}
+
+.form-conteiner {
+    position: relative;
+    top: 150px;
+    background-color: white;
+    width: 350px;;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#sala input{
+    position: relative;
+    left: 12px;
+}
+
+#pin input{
+    position: relative;
+    left: 42px;
+}
+
+.boton input {
+    margin-top: 10px;
+    width: 270px;
+    height: 40px;
+    position: relative;
+    right: 10px;
+    background-color: #f21D6B;
+    border: 0.1px solid #f21D6B;
+    border-radius: 5px;
+    color: white;
+}
+
+.crear-sala {
+        margin-top: 10px;
+        font-size: 12px;
+        position: relative;
+        right: 10px;
+    }
+
+    .crear-sala a {
+        color: #f25116;
+        text-decoration: none;
+    }
+
+.form-contenedor-crear {
+    background-color: white;
+    width: 400px;
+    height: 400px;
+    border-radius: 5px;
+    top: 50px;
+    padding: 5px;
+    margin-top: 30px;
+    
+}
+
+.form-group-crear {
+    font-size: 14px;
+    color: #f23054;
+    position: relative;
+    left: 10px;
+    margin-top: 10px;
+}
+
+.form-group-crear input{
+    border-radius: 5px;
+    border: 1px solid grey;
+    height: 35px;
+    width: 220px;
+    position: relative;
+    left: 10px;
+}
+
+.form-group-crear select {
+        border-radius: 5px;
+        width: 220px;
+        height: 35px;
+        border: 1px solid grey;
+        color: #f23054;
+        position: relative;
+        left: 7px;
+    }
+
+.form-group-crear-boton input {
+    background-color: #f23a29;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    width: 300px;
+    height: 40px;
+    position: relative;
+    left: 45px;
+    top: 50px;
+}
+
+#pin-crear input {
+    position: relative;
+    left: 115px;
+    height: 35px;
+}
+
+.form-group-crear-boton input:hover {
+        box-shadow: black 3px 3px 10px 0px;
+        border-radius: 5px;
+    }
+
+    .form-group-crear span {
+       color: black;
+       font-size: 15px;
+       display: flex;
+    }
+
+
+}
