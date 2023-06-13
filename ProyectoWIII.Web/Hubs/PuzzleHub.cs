@@ -10,11 +10,18 @@ namespace SignalR.Web.Hubs
         private static List<Jugador> _jugadoresConectados = new List<Jugador>();
         private static Dictionary<int, List<Jugador>> _salaJugadores = new Dictionary<int, List<Jugador>>();
         private static Dictionary<string, int> _salaConecctionId = new Dictionary<string, int>();
+        
+        
+        
+        
+        
         public async Task EnviarGanador(string ganador, int nroSala)
         {
             await Clients.OthersInGroup(nroSala.ToString()).SendAsync("RecibirGanador", ganador);
         }
 
+        
+        
         public async Task AgregarJugador(string nombreJugador, int nroSala)
         {
             try
