@@ -19,7 +19,6 @@ namespace Rompecabezas.Logica.Servicios
                     CantPieces = sala.CantPieces,
                     Pin = sala.Pin == null ? null : sala.Pin,
                     NroSala = GenerateRandomNumberSala(),
-                    LimiteParticipantes = sala.LimiteParticipantes
                 };
                 _context.Salas.Add(aAgregar);
                 _context.SaveChanges();

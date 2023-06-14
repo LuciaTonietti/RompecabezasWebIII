@@ -15,7 +15,7 @@ namespace Rompecabezas.Web
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<ISalaService,SalaServiceImpl>();
-            builder.Services.AddDbContext<RompeCabezaPw3Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("RompeCabezaPw3Context")));
+            builder.Services.AddDbContext<RompeCabezaPw3Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("rompecabezasDB")));
             builder.Services.AddSignalR();
 
             var app = builder.Build();
