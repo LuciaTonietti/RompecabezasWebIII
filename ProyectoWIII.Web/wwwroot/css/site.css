@@ -22,7 +22,7 @@ html {
 }
 
 
-body {
+body {  
   margin-bottom: 60px;
   background-image: linear-gradient(#f23054, #f21b7f, #f25116, #f23a29);
   font-family: bungee-regular;
@@ -230,6 +230,11 @@ h2{
         color: #f25116;
         text-decoration: none;
     }
+}
+
+@media (max-width: 450px){
+
+
 
 .form-contenedor-crear {
     background-color: white;
@@ -239,6 +244,8 @@ h2{
     top: 50px;
     padding: 5px;
     margin-top: 30px;
+    
+    
     
 }
 
