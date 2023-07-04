@@ -10,7 +10,7 @@ html {
   font-size: 14px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px){
   html {
     font-size: 16px;
   }
@@ -28,7 +28,7 @@ body {
   font-family: bungee-regular;
 }
 
-h2{
+h1{
     color: white;
     text-align: center;
     position: relative;
@@ -103,7 +103,7 @@ h2{
 .form-contenedor-crear {
     background-color: white;
     width: 470px;
-    height: 400px;
+    height: 300px;
     border-radius: 5px;
     position: relative;
     top: 50px;
@@ -177,7 +177,11 @@ h2{
 
 @media (max-width: 450px){
 
-h2{
+body {
+    font-size: 14px;
+  }
+
+h1{
     color: white;
     text-align: center;
     display: block;
@@ -187,6 +191,7 @@ h2{
 
 .form-conteiner {
     position: relative;
+    right: 6px;
     top: 150px;
     background-color: white;
     width: 350px;;
@@ -232,25 +237,21 @@ h2{
     }
 }
 
-@media (max-width: 450px){
-
+@media (max-width: 480px){
 
 
 .form-contenedor-crear {
     background-color: white;
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 250px;
     border-radius: 5px;
     top: 50px;
     padding: 5px;
     margin-top: 30px;
-    
-    
-    
 }
 
 .form-group-crear {
-    font-size: 14px;
+    font-size: 13px;
     color: #f23054;
     position: relative;
     left: 10px;
@@ -260,32 +261,38 @@ h2{
 .form-group-crear input{
     border-radius: 5px;
     border: 1px solid grey;
-    height: 35px;
-    width: 220px;
+    height: 30px;
+    width: 170px;
     position: relative;
-    left: 10px;
+    left: 15px;
 }
+
 
 .form-group-crear select {
         border-radius: 5px;
-        width: 220px;
+        width: 170px;
         height: 35px;
         border: 1px solid grey;
         color: #f23054;
         position: relative;
-        left: 7px;
+        left: 13px;
     }
+
+#CantPieces{
+   font-size: 11px;
+}
+
 
 .form-group-crear-boton input {
     background-color: #f23a29;
     border: none;
     border-radius: 5px;
     color: white;
-    width: 300px;
+    width: 250px;
     height: 40px;
     position: relative;
     left: 45px;
-    top: 50px;
+    top: 30px;
 }
 
 #pin-crear input {
@@ -301,7 +308,7 @@ h2{
 
     .form-group-crear span {
        color: black;
-       font-size: 15px;
+       font-size: 10px;
        display: flex;
     }
 
