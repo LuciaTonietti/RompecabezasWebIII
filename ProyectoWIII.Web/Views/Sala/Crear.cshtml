@@ -3,6 +3,10 @@
     <partial name="_ValidationScriptsPartial" />
 }
 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="contenedor">
 <div class="form-contenedor-crear">
     <form method="post" asp-action="Crear" asp-controller="Sala">
         <div class="form-group-crear">
@@ -44,6 +48,7 @@
         </div>
         <div class="@ViewBag.Classes"><span>@ViewBag.Message</span></div>
     </form>
+   </div>
 </div>
 
 

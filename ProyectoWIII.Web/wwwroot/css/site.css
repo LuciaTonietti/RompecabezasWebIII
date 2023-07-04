@@ -62,15 +62,14 @@ h1{
     border-radius: 5px;
     border: 1px solid grey;
     margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    left: 10px;
+    left: 90px;
+    top: -30.5px;
+    margin-bottom: -15px;
 }
-
-#pin input{
-    position: relative;
-    left: 45px;
-}
-
 
 .boton input {
     margin-top: 10px;
@@ -175,7 +174,7 @@ h1{
        display: flex;
     }
 
-@media (max-width: 450px){
+@media (max-width: 480px){
 
 body {
     font-size: 14px;
@@ -187,29 +186,6 @@ h1{
     display: block;
     top: 100px;
     font-family: bungeeshade-regular;
-}
-
-.form-conteiner {
-    position: relative;
-    right: 6px;
-    top: 150px;
-    background-color: white;
-    width: 350px;;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    text-align: center;
-    border-radius: 5px;
-}
-
-#sala input{
-    position: relative;
-    left: 12px;
-}
-
-#pin input{
-    position: relative;
-    left: 42px;
 }
 
 .boton input {
@@ -239,19 +215,101 @@ h1{
 
 @media (max-width: 480px){
 
-
 .form-contenedor-crear {
     background-color: white;
-    width: 350px;
-    height: 250px;
+    width: 300px;
+    height: 230px;
     border-radius: 5px;
     top: 50px;
     padding: 5px;
     margin-top: 30px;
+    position: relative;
+    left: 50px;
+ 
 }
 
 .form-group-crear {
-    font-size: 13px;
+    font-size: 15px;
+    color: #f23054;
+    position: relative;
+    left: 5px;
+    margin-top: 10px;
+}
+
+.form-group-crear input{
+    border-radius: 5px;
+    border: 1px solid grey;
+    height: 30px;
+    width: 115px;
+    position: relative;
+    left: 15px;
+}
+
+
+.form-group-crear select {
+        border-radius: 5px;
+        width: 115px;
+        height: 30px;
+        border: 1px solid grey;
+        color: #f23054;
+        position: relative;
+        left: 13px;
+    }
+
+#CantPieces{
+   font-size: 6.5px;
+}
+
+
+.form-group-crear-boton input {
+    background-color: #f23a29;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    width: 220px;
+    height: 30px;
+    position: relative;
+    left: 30px;
+    top: 30px;
+}
+
+#pin-crear input {
+    position: relative;
+    left: 130px;
+    height: 30px;
+}
+
+.form-group-crear-boton input:hover {
+        box-shadow: black 3px 3px 10px 0px;
+        border-radius: 5px;
+    }
+
+    .form-group-crear span {
+       color: black;
+       font-size: 9px;
+       display: flex;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  /* Estilos para tablets */
+
+
+  .form-contenedor-crear {
+    background-color: white;
+    width: 350px;
+    height: 230px;
+    border-radius: 5px;
+    top: 50px;
+    padding: 5px;
+    margin-top: 30px;
+    position: relative;
+    left: 70px;
+ 
+}
+
+.form-group-crear {
+    font-size: 15px;
     color: #f23054;
     position: relative;
     left: 10px;
@@ -262,7 +320,7 @@ h1{
     border-radius: 5px;
     border: 1px solid grey;
     height: 30px;
-    width: 170px;
+    width: 160px;
     position: relative;
     left: 15px;
 }
@@ -270,8 +328,8 @@ h1{
 
 .form-group-crear select {
         border-radius: 5px;
-        width: 170px;
-        height: 35px;
+        width: 160px;
+        height: 30px;
         border: 1px solid grey;
         color: #f23054;
         position: relative;
@@ -279,7 +337,7 @@ h1{
     }
 
 #CantPieces{
-   font-size: 11px;
+   font-size: 10px;
 }
 
 
@@ -289,16 +347,16 @@ h1{
     border-radius: 5px;
     color: white;
     width: 250px;
-    height: 40px;
+    height: 30px;
     position: relative;
-    left: 45px;
+    left: 40px;
     top: 30px;
 }
 
 #pin-crear input {
     position: relative;
-    left: 115px;
-    height: 35px;
+    left: 130px;
+    height: 30px;
 }
 
 .form-group-crear-boton input:hover {
@@ -308,9 +366,9 @@ h1{
 
     .form-group-crear span {
        color: black;
-       font-size: 10px;
+       font-size: 9px;
        display: flex;
     }
 
-
 }
+
